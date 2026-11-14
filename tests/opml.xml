@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>Feeds of Alexis</title>
+  </head>
+  <body>
+    <outline text="Blogs" title="Blogs">
+      <outline text="Journal du Hacker" title="Journal du Hacker" type="rss" xmlUrl="https://www.journalduhacker.net/rss" htmlUrl="http://www.journalduhacker.net/"/>
+      <outline text="Korben" title="Korben" type="rss" xmlUrl="https://korben.info/feed" htmlUrl="http://korben.info/"/>
+    </outline>
+  </body>
+</opml>
