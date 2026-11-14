@@ -1,0 +1,21 @@
+{
+    "name": "alc/opml-parser",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Alc\\Opml\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexis CHEMEL",
+            "email": "chemel@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^13.4"
+    }
+}
