@@ -25,7 +25,8 @@ class Writer
         $xml = new \SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><opml version="1.0"></opml>');
 
         $head = $xml->addChild('head');
-        $head->addChild('title', htmlspecialchars($opml->getTitle()));
+        // Property assignment escapes the value (addChild() does not escape "&").
+        $head->title = $opml->getTitle() ?? '';
 
         $body = $xml->addChild('body');
         foreach ($opml->getOutlines() as $outline) {
@@ -47,22 +48,22 @@ class Writer
     {
         $outlineElement = $parent->addChild('outline');
         if ($outline instanceof Entity\Category) {
-            $outlineElement->addAttribute('text', htmlspecialchars($outline->getText()));
-            $outlineElement->addAttribute('title', htmlspecialchars($outline->getTitle()));
+            $outlineElement->addAttribute('text', $outline->getText() ?? '');
+            $outlineElement->addAttribute('title', $outline->getTitle() ?? '');
             foreach ($outline->getOutlines() as $childOutline) {
                 $this->writeOutline($outlineElement, $childOutline);
             }
         } elseif ($outline instanceof Entity\Feed) {
-            $outlineElement->addAttribute('text', htmlspecialchars($outline->getText()));
-            $outlineElement->addAttribute('title', htmlspecialchars($outline->getTitle()));
+            $outlineElement->addAttribute('text', $outline->getText() ?? '');
+            $outlineElement->addAttribute('title', $outline->getTitle() ?? '');
             if ($outline->getType()) {
-                $outlineElement->addAttribute('type', htmlspecialchars($outline->getType()));
+                $outlineElement->addAttribute('type', $outline->getType());
             }
             if ($outline->getXmlUrl()) {
-                $outlineElement->addAttribute('xmlUrl', htmlspecialchars($outline->getXmlUrl()));
+                $outlineElement->addAttribute('xmlUrl', $outline->getXmlUrl());
             }
             if ($outline->getHtmlUrl()) {
-                $outlineElement->addAttribute('htmlUrl', htmlspecialchars($outline->getHtmlUrl()));
+                $outlineElement->addAttribute('htmlUrl', $outline->getHtmlUrl());
             }
         }
     }
