@@ -1,6 +1,8 @@
 {
     "name": "alc/opml-parser",
-    "type": "library",
+    "type": "library",   
+    "description": "A small PHP library to read and write OPML files, the format feed readers use to import and export lists of RSS/Atom subscriptions.",
+    "keywords": ["opml", "parser", "reader", "writer", "rss", "atom", "feed", "xml"],
     "license": "MIT",
     "autoload": {
         "psr-4": {
